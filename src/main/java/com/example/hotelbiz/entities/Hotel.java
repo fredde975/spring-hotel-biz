@@ -2,21 +2,23 @@ package com.example.hotelbiz.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 @Data
 @Entity
 public class Hotel {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+    @Column(name = "name", nullable = false)
     private String name;
+
+    @Column(name = "classification", nullable = false)
     private Integer classification;
+
+
+    @Column(name = "open", nullable = false)
     private Boolean open;
 
     public Hotel() {
@@ -28,6 +30,7 @@ public class Hotel {
         this.classification = classification;
         this.open = open;
     }
+
 }
 
 
